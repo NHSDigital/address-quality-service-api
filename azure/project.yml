@@ -1,0 +1,8 @@
+variables:
+  - group: status-endpoint
+  - name: service_name
+    value: address-quality-service-api
+  - name: short_service_name
+    value: aqsa
+  - name: service_base_path
+    value: address-quality-service-api
