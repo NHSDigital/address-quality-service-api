@@ -85,17 +85,6 @@ paths:
 
         For full details of the request payload for this endpoint, see [RARecord-Consent-1](https://fhir.nhs.uk/STU3/StructureDefinition/RARecord-Consent-1).
       operationId: postValidate
-      parameters:
-        name: x-api-key
-        in: header
-        required: true
-        description: |
-          The x-api-key is the API Key and is used for authentication
-
-          This field is mandatory.
-
-        schema:
-          type: string
       requestBody:
         description: Match address
         required: true
