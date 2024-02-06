@@ -167,8 +167,7 @@ paths:
                   $ref: components/examples/postMatchAddressRequest.json
       responses:
         "201":
-          description: Reasonable Adjustment Flag created and consent details
-            added.
+          description: Reasonable Adjustment Flag created and consent details added.
           content:
             application/json:
               examples:
