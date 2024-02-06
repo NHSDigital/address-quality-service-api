@@ -39,8 +39,6 @@ info:
 
     This API is [in development]
 
-    (https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses)
-
     , meaning:
       * it is available for testing in the integration environment
       * we expect to make breaking changes based on developer feedback
@@ -56,15 +54,11 @@ info:
 
     For more details, see [service levels]
 
-    (https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).
-
 
     ## Technology
 
 
     This API is [RESTful]
-
-    (https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).
 
 
     ### Open source
@@ -83,8 +77,6 @@ info:
     (https://digital.nhs.uk/services/health-and-social-care-network).
 
     For more details see [Network access for APIs]
-
-    (https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis).
 
 
     ## Security and authorisation
@@ -123,8 +115,6 @@ info:
     Response. See our
 
     [reference guide]
-
-    (https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes)
 
     for more on errors.
   contact:
@@ -167,7 +157,8 @@ paths:
                   $ref: components/examples/postMatchAddressRequest.json
       responses:
         "201":
-          description: Reasonable Adjustment Flag created and consent details added.
+          description: Reasonable Adjustment Flag created and consent details
+            added.
           content:
             application/json:
               examples:
