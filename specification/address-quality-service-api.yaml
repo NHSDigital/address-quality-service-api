@@ -131,8 +131,6 @@ servers:
 paths:
   /validate:
     post:
-      security:
-        - app-level3: []
       summary: ASD
       description: |-
         ## Overview
@@ -150,7 +148,38 @@ paths:
         content:
           application:
             schema:
-              $ref: components/schemas/postMatchAddress.yaml
+              title: Schema for validating
+              type: object
+              additionalProperties: false
+              required:
+                - nhsNumber
+                - line
+                - postalCode
+                - addressSnippetId
+                - paf
+              properties:
+                nhsNumber:
+                  description: |
+                    The unique identifier for a patient
+                  type: string
+                  pattern: ^(\\d{10}|\\d{3} \\d{3} \\d{4}|\\d{3}-\\d{3}-\\d{4})$
+                line:
+                  type: array
+                  items:
+                    type: string
+                  minItems: 1
+                postalCode:
+                  type: string
+                addressSnippetId:
+                  type: string
+                startDate:
+                  type: string
+                endDate:
+                  type: string
+                paf:
+                  type: string
+                use:
+                  type: string
             examples:
               success:
                 value:
