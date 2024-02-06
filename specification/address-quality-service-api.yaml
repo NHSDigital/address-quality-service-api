@@ -95,19 +95,14 @@ paths:
             examples:
               success:
                 value:
-                  $ref: components/examples/postMatchAddress.json
+                  $ref: components/examples/postMatchAddressRequest.json
       responses:
         "201":
           description: Reasonable Adjustment Flag created and consent details added.
-          headers:
-            Date:
-              $ref: components/schemas/postMatchAddress.yaml
-            Content-Type:
-              $ref: components/schemas/postMatchAddress.yaml
           content:
             application/json:
               examples:
                 Successful:
                   summary: The response from a successful request.
                   value:
-                    $ref: components/examples/postMatchAddress.json
+                    $ref: components/examples/postMatchAddressResponse.json
