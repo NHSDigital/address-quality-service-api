@@ -81,7 +81,7 @@ info:
 
     ## Security and authorisation
 
-    To be completed.
+    There will be used a API Key to authorize request.
 
     ## Environments and testing
 
@@ -122,8 +122,6 @@ info:
     url: https://digital.nhs.uk/developer/help-and-support
     email: api.management@nhs.net
 servers:
-  - url: https://sandbox.api.service.nhs.uk/address-quality-service-api
-    description: Sandbox environment.
   - url: https://int.api.service.nhs.uk/address-quality-service-api
     description: Integration test environment.
   - url: https://api.service.nhs.uk/address-quality-service-api
@@ -134,13 +132,8 @@ paths:
       summary: ASD
       description: |-
         ## Overview
-        Use this endpoint to create a Reasonable Adjustment Flag for a patient
-        and add details regarding the patient's consent to share it, as well
-        as how this was obtained.
-
-        For full details of the request payload for this endpoint, see
-        [RARecord-Consent-1]
-        (https://fhir.nhs.uk/STU3/StructureDefinition/RARecord-Consent-1).
+        Use this endpoint to validate the input address agains a standard
+        address.
       operationId: postValidate
       requestBody:
         description: Match address
@@ -148,46 +141,14 @@ paths:
         content:
           application:
             schema:
-              title: Schema for validating
-              type: object
-              additionalProperties: false
-              required:
-                - nhsNumber
-                - line
-                - postalCode
-                - addressSnippetId
-                - paf
-              properties:
-                nhsNumber:
-                  description: |
-                    The unique identifier for a patient
-                  type: string
-                  pattern: ^(\\d{10}|\\d{3} \\d{3} \\d{4}|\\d{3}-\\d{3}-\\d{4})$
-                line:
-                  type: array
-                  items:
-                    type: string
-                  minItems: 1
-                postalCode:
-                  type: string
-                addressSnippetId:
-                  type: string
-                startDate:
-                  type: string
-                endDate:
-                  type: string
-                paf:
-                  type: string
-                use:
-                  type: string
+              $ref: components/schemas/postMatchAddress.yaml
             examples:
               success:
                 value:
                   $ref: components/examples/postMatchAddressRequest.json
       responses:
         "201":
-          description: Reasonable Adjustment Flag created and consent details
-            added.
+          description: provides the UPRN and address properties
           content:
             application/json:
               examples:

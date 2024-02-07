@@ -7,7 +7,6 @@ required:
   - line
   - postalCode
   - addressSnippetId
-  - paf
 properties:
   nhsNumber:
     description: |
@@ -16,6 +15,8 @@ properties:
     pattern: ^(\\d{10}|\\d{3} \\d{3} \\d{4}|\\d{3}-\\d{3}-\\d{4})$
   line:
     type: array
+    items:
+      type: string
     minItems: 1
   postalCode:
     type: string
@@ -29,4 +30,3 @@ properties:
     type: string
   use:
     type: string
-    
