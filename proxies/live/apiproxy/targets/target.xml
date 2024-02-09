@@ -21,13 +21,13 @@
     </FaultRule>
   </FaultRules>
   <HTTPTargetConnection>
-      <!--TODO: The target needs to configured on a per enironment basis
+      <!--TODO: The target needs to configured on a per enironment basis (NPA-1979)
+          This URL will also need to change once we have DNS in place (NPA-1669)
       -->
     <URL>https://vtcl5to8zg.execute-api.eu-west-2.amazonaws.com/tese2-spine-api-gateway/validate</URL>
     <Properties>
       <Property name="supports.http10">true</Property>
       <Property name="request.retain.headers">User-Agent,Referer,Accept-Language</Property>
-      <Property name="retain.queryparams">apikey</Property>
     </Properties>
   </HTTPTargetConnection>
 </TargetEndpoint>
