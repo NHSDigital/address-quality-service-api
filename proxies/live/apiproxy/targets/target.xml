@@ -2,24 +2,10 @@
   <PreFlow>
     <Request>
       <Step>
-        <Name>OauthV2.VerifyAccessTokenAppLevel3OrCis2Aal3</Name>
-      </Step>
-      <Step>
         <Name>FlowCallout.ApplyRateLimiting</Name>
       </Step>
     </Request>
   </PreFlow>
-  <FaultRules>
-    <FaultRule name="access_token_expired">
-      <Step>
-        <Name>ExtractVariables.OAuthErrorFaultString</Name>
-      </Step>
-      <Step>
-        <Name>AssignMessage.OAuthPolicyErrorResponse</Name>
-      </Step>
-      <Condition>oauthV2.OauthV2.VerifyAccessToken.failed</Condition>
-    </FaultRule>
-  </FaultRules>
   <HTTPTargetConnection>
       <!--TODO: The target needs to configured on a per enironment basis (NPA-1979)
           This URL will also need to change once we have DNS in place (NPA-1669)
