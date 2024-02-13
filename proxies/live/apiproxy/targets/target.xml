@@ -1,9 +1,6 @@
 <TargetEndpoint name="address-quality-service-api-target">
   <PreFlow>
     <Request>
-      <Step>
-        <Name>FlowCallout.ApplyRateLimiting</Name>
-      </Step>
     </Request>
   </PreFlow>
   <HTTPTargetConnection>
