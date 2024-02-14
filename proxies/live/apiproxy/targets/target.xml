@@ -1,16 +1,17 @@
 <TargetEndpoint name="address-quality-service-api-target">
   <PreFlow>
     <Request>
+      <Step>
+        <Name>VerifyApiKey-Header</Name>
+      </Step>
     </Request>
   </PreFlow>
   <HTTPTargetConnection>
       <!--TODO: The target needs to configured on a per enironment basis (NPA-1979)
           This URL will also need to change once we have DNS in place (NPA-1669)
       -->
-    <URL>http://mocktarget.apigee.net</URL>
     <Properties>
-      <Property name="supports.http10">true</Property>
-      <Property name="request.retain.headers">User-Agent,Referer,Accept-Language</Property>
     </Properties>
+    {{ HOSTED_TARGET_CONNECTION }}
   </HTTPTargetConnection>
 </TargetEndpoint>
