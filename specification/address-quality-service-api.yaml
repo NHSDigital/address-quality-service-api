@@ -37,9 +37,9 @@ info:
     ## API status and roadmap
 
 
-    This API is [in development](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses)
+    This API is [in development](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),
 
-    , meaning:
+    meaning:
       * it is available for testing in the integration environment
       * we expect to make breaking changes based on developer feedback
 
@@ -52,13 +52,13 @@ info:
 
     holidays.
 
-    For more details, see [service levels]
+    For more details, see [service levels](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).
 
 
     ## Technology
 
 
-    This API is [RESTful]
+    This API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).
 
 
     ### Open source
@@ -72,11 +72,9 @@ info:
 
     This API is available on the internet and, indirectly, on the
 
-    [Health and Social Care Network (HSCN)]
+    [Health and Social Care Network (HSCN)](https://digital.nhs.uk/services/health-and-social-care-network).
 
-    (https://digital.nhs.uk/services/health-and-social-care-network).
-
-    For more details see [Network access for APIs]
+    For more details see [Network access for APIs](https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis).
 
 
     ## Security and authorisation
@@ -114,7 +112,7 @@ info:
 
     Response. See our
 
-    [reference guide]
+    [reference guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes)
 
     for more on errors.
   contact:
