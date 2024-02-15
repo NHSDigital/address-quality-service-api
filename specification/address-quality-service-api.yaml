@@ -127,7 +127,7 @@ servers:
 paths:
   /validate:
     post:
-      summary: ASD
+      summary: Endpoint to validate address and retrive UPRN.
       description: |-
         ## Overview
         Use this endpoint to validate the input address agains a standard
