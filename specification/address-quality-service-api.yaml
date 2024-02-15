@@ -1,46 +1,122 @@
-# This is an OpenAPI Specification (https://swagger.io/specification/)
-# for address-quality-service-api owned by NHS Digital (https://digital.nhs.uk/)
-openapi: '3.0.0'
+---
+openapi: 3.0.0
 info:
-  title: 'address-quality-service-api'
-  version: 'Computed and injected at build time by `scripts/set_version.py`'
-  description: |
+  title: address-quality-service-api
+  version: Computed and injected at build time by `scripts/set_version.py`
+  description: >
     ## Overview
-    Add a fully fledged description here with markdown syntax.
-    For help completing the content of your API spec, see [our guidance](https://nhsd-confluence.digital.nhs.uk/display/APM/Documenting+your+API).
-    You should also base your content on our exemplar API - [PDS FHIR](https://digital.nhs.uk/developer/api-catalogue/personal-demographics-service-fhir).
+
+    Address quality Service aims to add a UPRN to addresses before they are updated in PDS.
+
+    The input address is compared against a standard address in the AQS database.
+    If there is a match between the input and standard address the standard address will be returned with a UPRN.
+    If there is not a match the request will be forwarded to Autofix to do a match against OS Places.
+
     ## Who can use this API
-    To be completed.
+
+    The API is an internal API currently only available to Spine.
+
     ## Related APIs
-    To be completed.
+
+    There are no related APIs
+
     ## API status and roadmap
-    To be completed.
+
+    This API is [in development](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),
+
+    meaning:
+      * it is available for testing in the integration environment
+      * we expect to make breaking changes based on developer feedback
+
     ## Service level
-    To be completed.
+
+    This API is a bronze service, meaning it is operational and supported only during business hours (8 am to 6 pm), Monday to Friday excluding bank holidays.
+
+    For more details, see [service levels](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).
+
     ## Technology
-    To be completed.
+
+    This API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).
+
     ### Open source
-    To be completed.
+
+    The code base is currently closed source.
+
     ## Network access
-    To be completed.
+
+    This API is available on the internet and, indirectly, on the [Health and Social Care Network (HSCN)](https://digital.nhs.uk/services/health-and-social-care-network).
+
+    For more details see [Network access for APIs](https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis).
+
     ## Security and authorisation
-    To be completed.
+
+    There will be used a API Key to authorize request.
+
     ## Environments and testing
-    To be completed.
+
+
+    | Environment       | Base URL
+    | ----------------- | ---------------------------------------------------------------------|
+    | Integration test  | `https://int.api.service.nhs.uk/address-quality-service-api`         |
+    | Production        | `https://api.service.nhs.uk/address-quality-service-api`             |
+
+
     ## Onboarding
-    To be completed..
+
+    This API is not yet available for onboarding.
+
     ## Errors
-    To be completed.
-    
+
+    We use standard HTTP status codes to show whether an API request succeeded or not. They are usually in the range:
+
+    * 200 to 299 if it succeeded, including code 202 if it was accepted by an API that needs to wait for further action
+
+    * 400 to 499 if it failed because of a client error by your application
+
+    * 500 to 599 if it failed because of an error on our server
+
+    Errors specific to each API are shown in the Endpoints section, under Response. See our [reference guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes) for more on errors.
+
   contact:
-    name: 'address-quality-service-api API Support'
-    url: 'https://digital.nhs.uk/developer/help-and-support'
+    name: address-quality-service-api API Support
+    url: https://digital.nhs.uk/developer/help-and-support
     email: api.management@nhs.net
 servers:
-  - url: 'https://sandbox.api.service.nhs.uk/address-quality-service-api'
-    description: Sandbox environment.
-  - url: 'https://int.api.service.nhs.uk/address-quality-service-api'
+  - url: https://int.api.service.nhs.uk/address-quality-service-api
     description: Integration test environment.
-  - url: 'https://api.service.nhs.uk/address-quality-service-api'
+  - url: https://api.service.nhs.uk/address-quality-service-api
     description: Production environment.
-paths: {}
+paths:
+  /validate:
+    post:
+      summary: Endpoint to validate address and retrive UPRN.
+      description: |-
+        ## Overview
+        Use this endpoint to validate the input address agains a standard
+        address.
+      operationId: postValidate
+      requestBody:
+        description: Match address
+        required: true
+        content:
+          application:
+            schema:
+              $ref: components/schemas/postMatchAddress.yaml
+            examples:
+              success:
+                value:
+                  $ref: components/examples/postMatchAddressRequest.json
+      responses:
+        "200":
+          description: provides the UPRN and address properties
+          content:
+            application/json:
+              examples:
+                Successful:
+                  summary: The response from a successful request.
+                  value:
+                    $ref: components/examples/postMatchAddressResponse.json
+        "400":
+          description: Invalid address line or postal code
+        "404":
+          description: Unable to get a match on the address

@@ -1,0 +1,32 @@
+---
+title: Schema for validating
+type: object
+additionalProperties: false
+required:
+  - nhsNumber
+  - line
+  - postalCode
+  - addressSnippetId
+properties:
+  nhsNumber:
+    description: |
+      The unique identifier for a patient
+    type: string
+    pattern: ^(\\d{10}|\\d{3} \\d{3} \\d{4}|\\d{3}-\\d{3}-\\d{4})$
+  line:
+    type: array
+    items:
+      type: string
+    minItems: 1
+  postalCode:
+    type: string
+  addressSnippetId:
+    type: string
+  startDate:
+    type: string
+  endDate:
+    type: string
+  paf:
+    type: string
+  use:
+    type: string
