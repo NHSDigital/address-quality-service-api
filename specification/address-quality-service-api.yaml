@@ -5,6 +5,7 @@ info:
   version: Computed and injected at build time by `scripts/set_version.py`
   description: >
     ## Overview
+
     Address quality Service aims to add a UPRN to addresses before they are updated in PDS.
 
     The input address is compared against a standard address in the AQS database.
@@ -12,12 +13,15 @@ info:
     If there is not a match the request will be forwarded to Autofix to do a match against OS Places.
 
     ## Who can use this API
+
     The API is an internal API currently only available to Spine.
 
     ## Related APIs
+
     There are no related APIs
 
     ## API status and roadmap
+
     This API is [in development](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),
 
     meaning:
@@ -25,34 +29,42 @@ info:
       * we expect to make breaking changes based on developer feedback
 
     ## Service level
+
     This API is a bronze service, meaning it is operational and supported only during business hours (8 am to 6 pm), Monday to Friday excluding bank holidays.
 
     For more details, see [service levels](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).
 
     ## Technology
+
     This API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).
 
     ### Open source
+
     The code base is currently closed source.
 
     ## Network access
+
     This API is available on the internet and, indirectly, on the [Health and Social Care Network (HSCN)](https://digital.nhs.uk/services/health-and-social-care-network).
 
     For more details see [Network access for APIs](https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis).
 
     ## Security and authorisation
+
     There will be used a API Key to authorize request.
 
     ## Environments and testing
+
     | Environment       | Base URL                                                       
     | ----------------- | ---------------------------------------------------------------------|
     | Integration test  | `https://int.api.service.nhs.uk/address-quality-service-api`         |
     | Production        | `https://api.service.nhs.uk/address-quality-service-api`             |
 
     ## Onboarding
+
     This API is not yet available for onboarding.
 
     ## Errors
+
     We use standard HTTP status codes to show whether an API request succeeded or not. They are usually in the range:
 
     * 200 to 299 if it succeeded, including code 202 if it was accepted by an API that needs to wait for further action
