@@ -1,11 +1,6 @@
 {
-    "building_name": "CHRISTCHURCH COURT",
-    "county": "GLOUCESTERSHIRE",
-    "locality": "null",
-    "building_number": "77",
-    "sub_building_name": "FLAT 9",
-    "thoroughfare": "CHRISTCHURCH ROAD",
-    "post_town": "CHELTENHAM",
-    "uprn": "100120405586",
-    "post_code": "GL50 2PZ"
+    "postalCode": "GL50 2PZ",
+    "line": ["FLAT 9", "CHRISTCHURCH ROAD", "77 CHRISTCHURCH ROAD"],
+    "uprn": "100120405586"
+    
 }
