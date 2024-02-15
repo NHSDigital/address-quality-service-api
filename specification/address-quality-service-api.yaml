@@ -103,4 +103,4 @@ paths:
         "400":
           description: Invalid address line or postal code
         "404":
-          description: Invalid or unable to get a match on the address
+          description: Unable to get a match on the address
