@@ -55,7 +55,7 @@ info:
     ## Environments and testing
 
 
-    | Environment       | Base URL                                                             |
+    | Environment       | Base URL
     | ----------------- | ---------------------------------------------------------------------|
     | Integration test  | `https://int.api.service.nhs.uk/address-quality-service-api`         |
     | Production        | `https://api.service.nhs.uk/address-quality-service-api`             |
