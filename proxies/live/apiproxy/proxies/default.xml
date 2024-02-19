@@ -45,6 +45,15 @@
       <Condition>(proxy.pathsuffix MatchesPath "/_status") and ((request.verb = "GET") or (request.verb = "HEAD"))
       </Condition>
     </Flow>
+    <Flow name="validate">
+      <Request>
+        <Step>
+          <Condition>request.header.apikey = null or private.common.status-endpoint-api-key != request.header.apikey</Condition>
+          <Name>RaiseFault.401Unauthorized</Name>
+        </Step>
+      </Request>
+      <Condition>(proxy.pathsuffix MatchesPath "/validate") and ((request.verb = "POST") or (request.verb = "HEAD"))</Condition>
+    </Flow>
   </Flows>
   <PostClientFlow name="PostClientFlow">
     <Response>
