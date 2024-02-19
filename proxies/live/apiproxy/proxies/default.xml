@@ -1,4 +1,8 @@
 <ProxyEndpoint name="default">
+  <RouteRule name="asd">
+        <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
+        <URL>https://awge9kad4e.execute-api.eu-west-2.amazonaws.com/dev-spine-api-gateway/validate</URL>
+  </RouteRule>
   <PreFlow>
     <Request>
       <Step>
@@ -52,7 +56,7 @@
           <Name>RaiseFault.401Unauthorized</Name>
         </Step>
       </Request>
-      <Condition>(proxy.pathsuffix MatchesPath "/validate") and ((request.verb = "POST") or (request.verb = "HEAD"))</Condition>
+      <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
     </Flow>
   </Flows>
   <PostClientFlow name="PostClientFlow">
