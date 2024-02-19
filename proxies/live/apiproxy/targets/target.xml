@@ -1,9 +1,9 @@
 <TargetEndpoint name="address-quality-service-api-target">
   <PreFlow>
     <Request>
-      <!--<Step>
+      <Step>
         <Name>VerifyApiKey-Header</Name>
-      </Step>-->
+      </Step>
     </Request>
   </PreFlow>
   <HTTPTargetConnection>
