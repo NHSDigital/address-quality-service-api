@@ -79,6 +79,9 @@
   <RouteRule name="NoRouteStatus">
     <Condition>(proxy.pathsuffix MatchesPath "/_status") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
   </RouteRule>
+  <RouteRule name="NoRouteValidate">
+    <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
+  </RouteRule>
   <RouteRule name="address-quality-service-api-target">
     <TargetEndpoint>address-quality-service-api-target</TargetEndpoint>
   </RouteRule>
