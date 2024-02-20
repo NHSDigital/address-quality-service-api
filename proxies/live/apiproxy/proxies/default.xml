@@ -1,5 +1,5 @@
 <ProxyEndpoint name="default">
-  <RouteRule name="asd">
+  <RouteRule name="validate">
         <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
         <URL>https://awge9kad4e.execute-api.eu-west-2.amazonaws.com/dev-spine-api-gateway/validate</URL>
   </RouteRule>
