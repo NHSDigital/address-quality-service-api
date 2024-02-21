@@ -85,11 +85,11 @@ servers:
 paths:
   /validate:
     post:
-      summary: Endpoint to validate address and retrive UPRN.
+      summary: Validate address
       description: |-
         ## Overview
         Use this endpoint to validate the input address agains a standard
-        address.
+        address and retrive UPRN if there is a match
       operationId: postValidate
       requestBody:
         description: Match address
