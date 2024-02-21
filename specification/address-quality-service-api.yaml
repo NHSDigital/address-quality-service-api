@@ -6,7 +6,7 @@ info:
   description: >
     ## Overview
 
-    Address quality Service aims to add a UPRN to addresses before they are updated in PDS.
+    Address Quality Service(AQS) aims to add a UPRN to addresses before they are updated in the Personal demographics Service(PDS) database.
 
     The input address is compared against a standard address in the AQS database.
     If there is a match between the input and standard address the standard address will be returned with a UPRN.
@@ -14,16 +14,11 @@ info:
 
     ## Who can use this API
 
-    The API is an internal API currently only available to Spine.
-
-    ## Related APIs
-
-    There are no related APIs
+    The API is an internal API currently only available to PDS.
 
     ## API status and roadmap
 
     This API is [in development](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),
-
     meaning:
       * it is available for testing in the integration environment
       * we expect to make breaking changes based on developer feedback
@@ -38,10 +33,6 @@ info:
 
     This API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).
 
-    ### Open source
-
-    The code base is currently closed source.
-
     ## Network access
 
     This API is available on the internet and, indirectly, on the [Health and Social Care Network (HSCN)](https://digital.nhs.uk/services/health-and-social-care-network).
@@ -50,20 +41,9 @@ info:
 
     ## Security and authorisation
 
-    There will be used a API Key to authorize request.
+    AQS is using a API key to authenticate to the Proxy.
 
-    ## Environments and testing
-
-
-    | Environment       | Base URL
-    | ----------------- | ---------------------------------------------------------------------|
-    | Integration test  | `https://int.api.service.nhs.uk/address-quality-service-api`         |
-    | Production        | `https://api.service.nhs.uk/address-quality-service-api`             |
-
-
-    ## Onboarding
-
-    This API is not yet available for onboarding.
+    For more details see [Application-restricted RESTful APIs - API key authentication](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation/application-restricted-restful-apis-api-key-authentication).
 
     ## Errors
 
@@ -77,6 +57,22 @@ info:
 
     Errors specific to each API are shown in the Endpoints section, under Response. See our [reference guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes) for more on errors.
 
+    ### Open source
+
+    The Proxy is open source. For more details see [Proxy](https://github.com/NHSDigital/address-quality-service-api/).
+    The backend is currently a closed-source project.
+
+    ## Environments and testing
+
+    | Environment       | Base URL                                                               |
+    | ----------------- | ---------------------------------------------------------------------- |
+    | Integration test  | `https://int.api.service.nhs.uk/address-quality-service-api`           |
+    | Production        | `https://api.service.nhs.uk/address-quality-service-api`               |
+
+    ## Onboarding
+
+    This API is not yet available for onboarding.
+
   contact:
     name: address-quality-service-api API Support
     url: https://digital.nhs.uk/developer/help-and-support
@@ -89,11 +85,11 @@ servers:
 paths:
   /validate:
     post:
-      summary: Endpoint to validate address and retrive UPRN.
+      summary: Validate address
       description: |-
         ## Overview
         Use this endpoint to validate the input address agains a standard
-        address.
+        address and retrive UPRN if there is a match
       operationId: postValidate
       requestBody:
         description: Match address
