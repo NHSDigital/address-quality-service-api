@@ -50,11 +50,6 @@
       </Condition>
     </Flow>
     <Flow name="validate">
-      <Request>
-        <Step>
-          <Name>VerifyApiKey-Header</Name>
-        </Step>
-      </Request>
       <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
     </Flow>
   </Flows>

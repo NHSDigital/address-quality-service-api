@@ -2,7 +2,7 @@
   <PreFlow>
     <Request>
       <Step>
-        <Name>VerifyApiKey-Header</Name>
+        <Name>APIKeyVerifier</Name>
       </Step>
       <Step>
         <Name>FlowCallout.ApplyRateLimiting</Name>
