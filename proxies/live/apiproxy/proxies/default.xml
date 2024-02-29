@@ -1,4 +1,8 @@
 <ProxyEndpoint name="default">
+  <RouteRule name="validate">
+        <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
+        <URL>https://awge9kad4e.execute-api.eu-west-2.amazonaws.com/dev-spine-api-gateway/validate</URL>
+  </RouteRule>
   <PreFlow>
     <Request>
       <Step>
@@ -45,6 +49,9 @@
       <Condition>(proxy.pathsuffix MatchesPath "/_status") and ((request.verb = "GET") or (request.verb = "HEAD"))
       </Condition>
     </Flow>
+    <Flow name="validate">
+      <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
+    </Flow>
   </Flows>
   <PostClientFlow name="PostClientFlow">
     <Response>
@@ -65,6 +72,9 @@
   </RouteRule>
   <RouteRule name="NoRouteStatus">
     <Condition>(proxy.pathsuffix MatchesPath "/_status") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
+  </RouteRule>
+  <RouteRule name="NoRouteValidate">
+    <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST")</Condition>
   </RouteRule>
   <RouteRule name="address-quality-service-api-target">
     <TargetEndpoint>address-quality-service-api-target</TargetEndpoint>
