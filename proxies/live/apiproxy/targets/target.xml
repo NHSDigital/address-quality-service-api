@@ -2,14 +2,27 @@
   <PreFlow>
     <Request>
       <Step>
-        <Name>VerifyApiKey-Header</Name>
+        <Name>Verify-API-Key</Name>
+      </Step>
+      <Step>
+        <Name>Add-API-Token</Name>
       </Step>
     </Request>
   </PreFlow>
+  <!--
+    To point to a named target server as this is how it SHOULD be implemented:
+    For example:
+    <HTTPTargetConnection>
+      <SSLInfo>
+        <Enabled>true</Enabled>
+      </SSLInfo>
+      <LoadBalancer>
+        <Server name="address-quality-service-api" />
+      </LoadBalancer>
+    </HTTPTargetConnection>
+  -->
   <HTTPTargetConnection>
-      <!--TODO: The target needs to configured on a per enironment basis (NPA-1979)
-          This URL will also need to change once we have DNS in place (NPA-1669)
-      -->
+    <URL>https://awge9kad4e.execute-api.eu-west-2.amazonaws.com/dev-spine-api-gateway/validate</URL>
     <Properties>
     </Properties>
     {{ HOSTED_TARGET_CONNECTION }}
