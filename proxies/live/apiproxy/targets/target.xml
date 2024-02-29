@@ -9,22 +9,7 @@
       </Step>
     </Request>
   </PreFlow>
-  <!--
-    To point to a named target server as this is how it SHOULD be implemented:
-    For example:
-    <HTTPTargetConnection>
-      <SSLInfo>
-        <Enabled>true</Enabled>
-      </SSLInfo>
-      <LoadBalancer>
-        <Server name="address-quality-service-api" />
-      </LoadBalancer>
-    </HTTPTargetConnection>
-  -->
   <HTTPTargetConnection>
-    <URL>https://awge9kad4e.execute-api.eu-west-2.amazonaws.com/dev-spine-api-gateway/validate</URL>
-    <Properties>
-    </Properties>
-    {{ HOSTED_TARGET_CONNECTION }}
+    <URL>private.environment_kvm_data.endpoint</URL>
   </HTTPTargetConnection>
 </TargetEndpoint>
