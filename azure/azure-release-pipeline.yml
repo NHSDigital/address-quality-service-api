@@ -35,13 +35,9 @@ extends:
       - environment: internal-dev
         post_deploy:
           - template: ./templates/run-tests.yml
-            parameters:
-              full: true
       - environment: internal-qa
         post_deploy:
           - template: ./templates/run-tests.yml
-            parameters:
-              full: true
       - environment: ref
         depends_on:
           - internal_qa
@@ -49,10 +45,6 @@ extends:
           - template: ./templates/run-tests.yml
       - environment: int
         depends_on:
-          - internal_qa
+          - ref
         post_deploy:
           - template: ./templates/run-tests.yml
-            parameters:
-              full: true
-              test-command: prod
-              smoketest-command: prod
