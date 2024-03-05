@@ -5,9 +5,8 @@
 This is a specification for the *address-quality-service-api* API.
 
 * `specification/` This [Open API Specification](https://swagger.io/docs/specification/about/) describes the endpoints, methods and messages exchanged by the API. Use it to generate interactive documentation; the contract between the API and its consumers.
-* `sandbox/` This NodeJS application implements a mock implementation of the service. Use it as a back-end service to the interactive documentation to illustrate interactions and concepts. It is not intended to provide an exhaustive/faithful environment suitable for full development and testing.
 * `scripts/` Utilities helpful to developers of this specification.
-* `proxies/` Live (connecting to another service) and sandbox (using the sandbox container) Apigee API Proxy definitions.
+* `proxies/` Live (connecting to another service) Apigee API Proxy definitions.
 
 Consumers of the API will find developer documentation on the [NHS Digital Developer Hub](https://digital.nhs.uk/developer).
 
@@ -92,8 +91,6 @@ As currently defined in your `proxies` folder, your proxies do pretty much nothi
 Telling Apigee how to connect to your backend requires a *Target Server*, which you should call named `address-quality-service-api-target`.
 Our *Target Servers* defined in the [api-management-infrastructure](https://github.com/NHSDigital/api-management-infrastructure) repository.
 
-:bulb: For Sandbox-running environments (`test`) these need to be present for successful deployment but can be set to empty/dummy values.
-
 ### Detailed folder walk through
 To get started developing your API use this template repo alongside guidance provided by the [API Producer Zone confluence](https://nhsd-confluence.digital.nhs.uk/display/APM/Deliver+your+API)
 
@@ -120,9 +117,7 @@ The `project.yml` file needs to be populated with your service names to make the
 
 This folder contains files relating to your Apigee API proxy.
 
-There are 2 folders `/live` and `/sandbox` allowing you to define a different proxy for sandbox use. By default, this sandbox proxy is implemented to route to the sandbox target server (code for this sandbox is found under /sandbox of this template repo)
-
-Within the `live/apiproxy` and `sandbox/apiproxy` folders are:
+Within the `live/apiproxy` folder is:
 
 `/proxies/default.xml`: Defines the proxy's Flows. Flows define how the proxy should handle different requests. By default, _ping and _status endpoint flows are defined.
 See the APM confluence for more information on how the [_ping](https://nhsd-confluence.digital.nhs.uk/display/APM/_ping+endpoint) and [_status](https://nhsd-confluence.digital.nhs.uk/display/APM/_status+endpoint) endpoints work.
@@ -131,7 +126,7 @@ See the APM confluence for more information on how the [_ping](https://nhsd-conf
 
 `/resources/jsc`: Snippets of javascript code that are used in Apigee Javascript policies. For more info about Javascript policies see [here](https://docs.apigee.com/api-platform/reference/policies/javascript-policy)
 
-`/targets`: The XMLs within these folders set up target definitions which allow connections to external target servers. The sandbox target definition is implemented to route to the sandbox target server (code for this sandbox is found under /sandbox of this template repo). For more info on setting up a target server see the [API Producer Zone confluence](https://nhsd-confluence.digital.nhs.uk/display/APM/Setting+up+a+target+server)
+`/targets`: The XMLs within these folders set up target definitions which allow connections to external target servers. For more info on setting up a target server see the [API Producer Zone confluence](https://nhsd-confluence.digital.nhs.uk/display/APM/Setting+up+a+target+server)
 
 #### `/sandbox`:
 
