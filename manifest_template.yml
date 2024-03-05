@@ -46,7 +46,7 @@ apigee:
                   timeunit: minute
                 spikeArrest:
                   enabled: true
-                  ratelimit: 5000pm # 16 requests per second
+                  ratelimit: 5000pm # 83 requests per second
               app:
                 quota:
                   enabled: false
