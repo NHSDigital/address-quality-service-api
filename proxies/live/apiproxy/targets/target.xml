@@ -5,6 +5,9 @@
         <Name>Verify-API-Key</Name>
       </Step>
       <Step>
+        <Name>FlowCallout.ApplyRateLimiting</Name>
+      </Step>
+      <Step>
         <Name>Add-API-Token</Name>
       </Step>
     </Request>
