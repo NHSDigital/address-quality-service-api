@@ -12,24 +12,7 @@
       </Step>
     </Request>
   </PreFlow>
-  <!--
-    To point to a named target server as this is how it SHOULD be implemented:
-    For example:
-    <HTTPTargetConnection>
-      <SSLInfo>
-        <Enabled>true</Enabled>
-      </SSLInfo>
-      <LoadBalancer>
-        <Server name="address-quality-service-api" />
-      </LoadBalancer>
-    </HTTPTargetConnection>
-  -->
   <HTTPTargetConnection>
-    <URL>https://awge9kad4e.execute-api.eu-west-2.amazonaws.com/dev-spine-api-gateway/validate</URL>
-    <Properties>
-      <Property name="supports.http10">true</Property>
-      <Property name="request.retain.headers">User-Agent,Referer,Accept-Language</Property>
-      <Property name="retain.queryparams">apikey</Property>
-    </Properties>
+    <URL>https://{private.environment_kvm_data.endpoint}</URL>
   </HTTPTargetConnection>
 </TargetEndpoint>
