@@ -13,6 +13,6 @@
     </Request>
   </PreFlow>
   <HTTPTargetConnection>
-    <URL name="Target">private.environment_kvm_data.endpoint</URL>
+    <URL>https://{private.environment_kvm_data.endpoint}</URL>
   </HTTPTargetConnection>
 </TargetEndpoint>
