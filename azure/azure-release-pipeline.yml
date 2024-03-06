@@ -48,3 +48,6 @@ extends:
           - ref
         post_deploy:
           - template: ./templates/run-tests.yml
+      - environment: prod
+        depends_on:
+        - int
