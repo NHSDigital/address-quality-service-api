@@ -43,11 +43,11 @@ extends:
           - internal_qa
         post_deploy:
           - template: ./templates/run-tests.yml
-      - environment: int
-        depends_on:
-          - ref
-        post_deploy:
-          - template: ./templates/run-tests.yml
-      - environment: prod
-        depends_on:
-        - int
+#      - environment: int
+#        depends_on:
+#          - ref
+#        post_deploy:
+#          - template: ./templates/run-tests.yml
+#      - environment: prod
+#        depends_on:
+#        - int
