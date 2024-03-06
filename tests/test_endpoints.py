@@ -37,8 +37,8 @@ def test_wait_for_ping(nhsd_apim_proxy_url):
 
 @pytest.mark.smoketest
 def test_status(nhsd_apim_proxy_url, status_endpoint_auth_headers):
-    # old_header = status_endpoint_auth_headers["apikey"]
-    # status_endpoint_auth_headers = {"X-Api-Key": old_header}
+    old_header = status_endpoint_auth_headers["apikey"]
+    status_endpoint_auth_headers = {"X-Api-Key": old_header}
 
     resp = requests.get(
         f"{nhsd_apim_proxy_url}/_status", headers=status_endpoint_auth_headers
@@ -49,8 +49,8 @@ def test_status(nhsd_apim_proxy_url, status_endpoint_auth_headers):
 
 @pytest.mark.smoketest
 def test_wait_for_status(nhsd_apim_proxy_url, status_endpoint_auth_headers):
-    # old_header = status_endpoint_auth_headers["apikey"]
-    # status_endpoint_auth_headers = {"X-Api-Key": old_header}
+    old_header = status_endpoint_auth_headers["apikey"]
+    status_endpoint_auth_headers = {"X-Api-Key": old_header}
     retries = 0
     resp = requests.get(f"{nhsd_apim_proxy_url}/_status", headers=status_endpoint_auth_headers)
     deployed_commitId = resp.json().get("commitId")
