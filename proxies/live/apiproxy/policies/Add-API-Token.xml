@@ -3,7 +3,7 @@
     <DisplayName>Add API Token</DisplayName>
     <Add>
         <Headers>
-            <Header name="x-api-key">{private.environment_kvm_data.x-api-key}</Header>
+            <Header name="X-Api-Key">{private.environment_kvm_data.X-Api-Key}</Header>
         </Headers>
     </Add>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>

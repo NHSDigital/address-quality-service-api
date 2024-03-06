@@ -34,7 +34,7 @@
     <Flow name="StatusEndpoint">
       <Request>
         <Step>
-          <Condition>request.header.x-api-key = null or private.common.status-endpoint-api-key != request.header.x-api-key</Condition>
+          <Condition>request.header.X-Api-Key = null or private.common.status-endpoint-api-key != request.header.X-Api-Key</Condition>
           <Name>RaiseFault.401Unauthorized</Name>
         </Step>
         <Step>
