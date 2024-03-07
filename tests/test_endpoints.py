@@ -81,11 +81,13 @@ def test_app_level0_access(nhsd_apim_proxy_url, nhsd_apim_auth_headers):
     """
     Test you have correctly configured an endpoint for application-level0 access.
     """
-    print(nhsd_apim_auth_headers)
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAA", nhsd_apim_auth_headers)
     resp = requests.get(nhsd_apim_proxy_url + "/test-auth/app/level0")
+    print("BBBBBBBBBBBBBBBBBBBBBBBBBBBB", resp)
     assert resp.status_code == 401  # unauthorized
 
     resp = requests.get(
         nhsd_apim_proxy_url + "/test-auth/app/level0", headers=nhsd_apim_auth_headers
     )
+    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCC", resp)
     assert resp.status_code == 200  # authorized
