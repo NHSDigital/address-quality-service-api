@@ -9,7 +9,6 @@ newman/
 .idea
 .DS_Store
 .#*
-.vscode
 
 __pycache__/
 .envrc
