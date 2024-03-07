@@ -86,6 +86,9 @@ def test_app_level0_access(nhsd_apim_proxy_url, nhsd_apim_auth_headers):
     print("BBBBBBBBBBBBBBBBBBBBBBBBBBBB", resp)
     assert resp.status_code == 401  # unauthorized
 
+    old_header = nhsd_apim_auth_headers["apikey"]
+    nhsd_apim_auth_headers = {"X-Api-Key": old_header}
+
     resp = requests.get(
         nhsd_apim_proxy_url + "/test-auth/app/level0", headers=nhsd_apim_auth_headers
     )
