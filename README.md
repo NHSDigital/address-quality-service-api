@@ -128,6 +128,7 @@ See the APM confluence for more information on how the [_ping](https://nhsd-conf
 
 `/targets`: The XMLs within these folders set up target definitions which allow connections to external target servers. For more info on setting up a target server see the [API Producer Zone confluence](https://nhsd-confluence.digital.nhs.uk/display/APM/Setting+up+a+target+server)
 
+
 #### `/scripts`:
 
 Contains useful scripts that are used throughout the project, for example in Makefile and Github workflows

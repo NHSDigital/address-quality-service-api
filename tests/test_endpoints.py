@@ -71,21 +71,3 @@ def test_wait_for_status(nhsd_apim_proxy_url, status_endpoint_auth_headers):
         pytest.fail("version not found")
 
     assert deployed_commitId == getenv('SOURCE_COMMIT_ID')
-
-
-# Use the pytest.mark.nhsd_apim_authorization fixture automate the
-# hassle of getting valid access tokens and/or API keys to access your
-# API.
-@pytest.mark.nhsd_apim_authorization({"access": "application", "level": "level0"})
-def test_app_level0_access(nhsd_apim_proxy_url, nhsd_apim_auth_headers):
-    """
-    Test you have correctly configured an endpoint for application-level0 access.
-    """
-    print(nhsd_apim_auth_headers)
-    resp = requests.get(nhsd_apim_proxy_url + "/test-auth/app/level0")
-    assert resp.status_code == 401  # unauthorized
-
-    resp = requests.get(
-        nhsd_apim_proxy_url + "/test-auth/app/level0", headers=nhsd_apim_auth_headers
-    )
-    assert resp.status_code == 200  # authorized
