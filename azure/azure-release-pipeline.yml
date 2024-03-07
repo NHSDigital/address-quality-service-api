@@ -34,15 +34,15 @@ extends:
     apigee_deployments:
       - environment: internal-dev
         post_deploy:
-#          - template: ./templates/run-tests.yml
+          - template: ./templates/run-tests.yml
       - environment: internal-qa
         post_deploy:
-#          - template: ./templates/run-tests.yml
+          - template: ./templates/run-tests.yml
       - environment: ref
         depends_on:
           - internal_qa
         post_deploy:
-#          - template: ./templates/run-tests.yml
+          - template: ./templates/run-tests.yml
 #      - environment: int
 #        depends_on:
 #          - ref
