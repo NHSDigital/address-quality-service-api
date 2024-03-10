@@ -12,8 +12,8 @@ APIGEE_ENVIRONMENTS:
   - name: ref
     display_name: Reference
     has_mock_auth: true
-#  - name: int
-#    display_name: Integration Testing
+  - name: int
+    display_name: Integration Testing
 #  - name: prod
 #    approval_type: manual
 #    display_name: Production
