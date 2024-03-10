@@ -14,11 +14,11 @@ APIGEE_ENVIRONMENTS:
     has_mock_auth: true
   - name: int
     display_name: Integration Testing
-#  - name: prod
-#    approval_type: manual
-#    display_name: Production
-#    ratelimit: '5000pm'
-#    quota: '5000'
+  - name: prod
+    approval_type: manual
+    display_name: Production
+    ratelimit: '5000pm'
+    quota: '5000'
 ---
 meta:
   api:
