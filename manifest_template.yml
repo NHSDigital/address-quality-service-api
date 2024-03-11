@@ -35,7 +35,7 @@ apigee:
   - name: {{ ENV.name }}
     products:
       - name: {{ NAME }}
-        approvalType: auto
+        approvalType: manual
         attributes:
           - name: access
             value: public
