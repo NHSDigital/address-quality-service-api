@@ -83,7 +83,7 @@ servers:
   - url: https://api.service.nhs.uk/address-quality-service-api
     description: Production environment.
 paths:
-  /validate:
+  /:
     post:
       summary: Validate address
       description: |-
