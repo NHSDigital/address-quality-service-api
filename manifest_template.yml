@@ -13,7 +13,6 @@ APIGEE_ENVIRONMENTS:
     display_name: Reference
     has_mock_auth: true
   - name: int
-    approval_type: auto
     display_name: Integration Testing
   - name: prod
     approval_type: manual
@@ -36,7 +35,7 @@ apigee:
   - name: {{ ENV.name }}
     products:
       - name: {{ NAME }}
-        approvalType: manual
+        approvalType: {{ ENV.approval_type | default('auto') }}
         attributes:
           - name: access
             value: public
