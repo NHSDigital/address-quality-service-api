@@ -131,7 +131,7 @@ See the APM confluence for more information on how the [_ping](https://nhsd-conf
 
 #### `/scripts`:
 
-Contains useful scripts that are used throughout the project, for example in Makefile and Github workflows
+Contains useful scripts that are used throughout the project, for example in Makefile and Github workflows.
 
 #### `/specification`:
 
