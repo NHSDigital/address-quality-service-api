@@ -93,7 +93,7 @@ paths:
       description: |-
         ## Overview
         Use this endpoint to validate the input address agains a standard
-        address and retrive UPRN if there is a match.
+        address and retrieve UPRN if there is a match.
       operationId: postValidate
       requestBody:
         description: Match address
