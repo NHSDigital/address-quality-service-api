@@ -7,7 +7,6 @@ install-python:
 #Installs dependencies using npm.
 install-node:
 	npm install --legacy-peer-deps
-	cd sandbox && npm install --legacy-peer-deps
 
 #Configures Git Hooks, which are scripts that run given a specified event.
 .git/hooks/pre-commit:
@@ -37,14 +36,6 @@ build-proxy:
 
 #Files to loop over in release
 _dist_include="pytest.ini poetry.lock poetry.toml pyproject.toml Makefile build/. tests"
-
-#Create /dist/ sub-directory and copy files into directory
-release: clean publish build-proxy
-	mkdir -p dist
-	for f in $(_dist_include); do cp -r $$f dist; done
-	cp ecs-proxies-deploy.yml dist/ecs-deploy-sandbox.yml
-	cp ecs-proxies-deploy.yml dist/ecs-deploy-internal-qa-sandbox.yml
-	cp ecs-proxies-deploy.yml dist/ecs-deploy-internal-dev-sandbox.yml
 
 #################
 # Test commands #
