@@ -86,6 +86,8 @@ servers:
     description: Integration test environment.
   - url: https://api.service.nhs.uk/address-quality-service-api
     description: Production environment.
+  - url:  https://sandbox.api.service.nhs.uk/address-quality-service-api
+    description: Sandbox environment.
 paths:
   /:
     post:
