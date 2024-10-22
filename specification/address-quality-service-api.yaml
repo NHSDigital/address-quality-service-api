@@ -82,12 +82,12 @@ info:
     url: https://digital.nhs.uk/developer/help-and-support
     email: api.management@nhs.net
 servers:
+  - url:  https://sandbox.api.service.nhs.uk/address-quality-service-api
+    description: Sandbox environment.
   - url: https://int.api.service.nhs.uk/address-quality-service-api
     description: Integration test environment.
   - url: https://api.service.nhs.uk/address-quality-service-api
     description: Production environment.
-  - url:  https://sandbox.api.service.nhs.uk/address-quality-service-api
-    description: Sandbox environment.
 paths:
   /:
     post:
