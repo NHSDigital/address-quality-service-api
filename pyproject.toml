@@ -1,5 +1,5 @@
 [project]
-python = "^3.8"
+python = "^3.9"
 
 [tool.poetry]
 name = "address-quality-service-api"
@@ -16,7 +16,7 @@ keywords = ["healthcare", "uk", "nhs"] #TODO add additional keywords
 
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 pytest-nhsd-apim = "^3.3.2"
 
 [tool.poetry.dev-dependencies]
