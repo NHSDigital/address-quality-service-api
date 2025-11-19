@@ -1,6 +1,8 @@
 [project]
 name = "address-quality-service-api"
 python = "^3.8"
+package-mode = false
+
 
 [tool.poetry]
 name = "address-quality-service-api"
