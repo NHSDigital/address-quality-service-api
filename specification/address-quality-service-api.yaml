@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: address-quality-service-api
   version: Computed and injected at build time by `scripts/set_version.py`
-  description: >
+  description: |
     ## Overview
 
     Use this API to add a Unique Property Reference Number (UPRN) to addresses before they are updated in the Personal Demographics Service (PDS) database.
@@ -66,7 +66,7 @@ info:
     The Proxy is open source. For more details see [Proxy](https://github.com/NHSDigital/address-quality-service-api/).
     The backend is currently a closed-source project.
 
-    ## Environments and Base URL
+    ## Environments and testing
 
     | Environment       | Base URL                                                               |
     | ----------------- | ---------------------------------------------------------------------- |
@@ -82,6 +82,8 @@ info:
     url: https://digital.nhs.uk/developer/help-and-support
     email: api.management@nhs.net
 servers:
+  - url:  https://sandbox.api.service.nhs.uk/address-quality-service-api
+    description: Sandbox environment.
   - url: https://int.api.service.nhs.uk/address-quality-service-api
     description: Integration test environment.
   - url: https://api.service.nhs.uk/address-quality-service-api
