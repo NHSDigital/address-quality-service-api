@@ -34,6 +34,8 @@
         </LoadBalancer>
         <!--Set in WritePathVariable.js-->
         <Path>{target_path}</Path>
+        <Condition>(proxy.pathsuffix MatchesPath "/general-validate") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
+            <Path>{general_target_path}</Path>
         <Properties>
             <Property name="supports.http10">true</Property>
             <Property name="request.retain.headers">User-Agent,Referer,Accept-Language</Property>
