@@ -65,6 +65,11 @@
   </RouteRule>
   <RouteRule name="NoRouteStatus">
     <Condition>(proxy.pathsuffix MatchesPath "/_status") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
+      <!-- ADD THIS NEW CONDITIONAL ROUTE RULE -->
+  <RouteRule name="address-quality-service-api-general-target">
+    <Condition>(proxy.pathsuffix MatchesPath "/general-validate") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
+    <TargetEndpoint>address-quality-service-api-general-target</TargetEndpoint>
+  </RouteRule>
   </RouteRule>
   <RouteRule name="address-quality-service-api-target">
     <TargetEndpoint>address-quality-service-api-target</TargetEndpoint>
