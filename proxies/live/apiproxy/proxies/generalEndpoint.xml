@@ -57,15 +57,18 @@
     <BasePath>{{ SERVICE_BASE_PATH }}</BasePath>
     <VirtualHost>secure</VirtualHost>
   </HTTPProxyConnection>
-  <RouteRule name="NoRoute">
-    <Condition>(request.verb = "OPTIONS") and (request.header.origin != null) and (request.header.Access-Control-Request-Method != null)</Condition>
-  </RouteRule>
   <RouteRule name="NoRoutePing">
     <Condition>(proxy.pathsuffix MatchesPath "/_ping") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
   </RouteRule>
   <RouteRule name="NoRouteStatus">
     <Condition>(proxy.pathsuffix MatchesPath "/_status") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
   </RouteRule>
+    <!-- ADD THIS NEW CONDITIONAL ROUTE RULE -->
+  <RouteRule name="address-quality-service-api-general-target">
+    <Condition>(proxy.pathsuffix MatchesPath "/general-validate") and ((request.verb = "GET") or (request.verb = "HEAD"))</Condition>
+    <TargetEndpoint>address-quality-service-api-general-target</TargetEndpoint>
+  </RouteRule>
+  <!-- This is now the fallback/default route -->
   <RouteRule name="address-quality-service-api-target">
     <TargetEndpoint>address-quality-service-api-target</TargetEndpoint>
   </RouteRule>
