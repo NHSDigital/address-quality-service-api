@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TargetEndpoint name="address-quality-service-api-target">
+<TargetEndpoint name="address-quality-service-api-general-target">
     <PreFlow>
         <Request>
             <!-- EnhancedVerifyApiKey shared flow checks apikeys with no associated products which is missed by Apigee's VerifyApiKey policy. -->
@@ -33,7 +33,7 @@
             <Server name="address-quality-service-api"/>
         </LoadBalancer>
         <!--Set in WritePathVariable.js-->
-        <Path>{target_path}</Path>
+        <Path>{general_target_path}</Path>
         <Properties>
             <Property name="supports.http10">true</Property>
             <Property name="request.retain.headers">User-Agent,Referer,Accept-Language</Property>
