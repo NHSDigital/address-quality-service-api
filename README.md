@@ -88,7 +88,7 @@ The Apigee portal will not automatically pull examples from schemas, you must sp
 ### Platform setup
 
 As currently defined in your `proxies` folder, your proxies do pretty much nothing.
-Telling Apigee how to connect to your backend requires a *Target Server*, which you should call named `address-quality-service-api-target`.
+Telling Apigee how to connect to your backend requires a *Target Server*, which you should call named `address-quality-service-api-spine-target`.
 Our *Target Servers* defined in the [api-management-infrastructure](https://github.com/NHSDigital/api-management-infrastructure) repository.
 
 ### Detailed folder walk through
