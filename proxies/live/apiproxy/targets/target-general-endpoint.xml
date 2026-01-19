@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="address-quality-service-api-general-target">
+    <PreFlow>
+        <Request>
+            <!-- EnhancedVerifyApiKey shared flow checks apikeys with no associated products which is missed by Apigee's VerifyApiKey policy. -->
+            <Step>
+                <Name>FlowCallout.EnhancedVerifyApiKey</Name>
+            </Step>
+            <!-- Verify-API-Key policy is still needed but set to continueOnError="true" to pass rate limiting info from the app to the
+            ApplyRateLimiting policy in the shared flow. -->
+            <Step>
+                <Name>Verify-API-Key</Name>
+            </Step>
+            <Step>
+                <Name>Quota</Name>
+            </Step>
+            <Step>
+                <Name>SpikeArrest</Name>
+            </Step>
+            <Step>
+                <Name>FlowCallout.ApplyRateLimiting</Name>
+            </Step>
+            <Step>
+                <Name>javascript.WritePathToVariable</Name>
+            </Step>
+            <Step>
+                <Name>Add-API-Token</Name>
+            </Step>
+        </Request>
+    </PreFlow>
+    <HTTPTargetConnection>
+        <LoadBalancer>
+            <Server name="address-quality-service-api"/>
+        </LoadBalancer>
+        <!--Set in WritePathVariable.js-->
+        <Path>{general_target_path}</Path>
+        <Properties>
+            <Property name="supports.http10">true</Property>
+            <Property name="request.retain.headers">User-Agent,Referer,Accept-Language</Property>
+        </Properties>
+    </HTTPTargetConnection>
+</TargetEndpoint>
