@@ -6,3 +6,6 @@ variables:
     value: aqsa
   - name: service_base_path
     value: address-quality-service-api
+  - name: python_version
+    value: 3.8
+       
