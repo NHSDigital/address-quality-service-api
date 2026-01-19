@@ -7,5 +7,5 @@ variables:
   - name: service_base_path
     value: address-quality-service-api
   - name: python_version
-    value: 3.8
+    value: 3.11
        
