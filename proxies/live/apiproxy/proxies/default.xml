@@ -71,7 +71,6 @@
         <TargetEndpoint>address-quality-service-api-general-target</TargetEndpoint>
     </RouteRule>
     <RouteRule name="address-quality-service-api-spine-target">
-        <Condition>(proxy.pathsuffix MatchesPath "/validate") and ((request.verb = "POST") or (request.verb = "HEAD"))</Condition>
         <TargetEndpoint>address-quality-service-api-spine-target</TargetEndpoint>
     </RouteRule>
     <DefaultFaultRule>
