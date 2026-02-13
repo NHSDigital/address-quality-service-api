@@ -1,6 +1,6 @@
 [project]
 name = "address-quality-service-api"
-python = "^3.8"
+python = "^3.13"
 
 
 [tool.poetry]
@@ -19,7 +19,7 @@ package-mode = false
 
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.13"
 pytest-nhsd-apim = "^3.3.2"
 
 [tool.poetry.dev-dependencies]

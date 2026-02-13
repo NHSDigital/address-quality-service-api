@@ -10,7 +10,7 @@ parameters:
     default: 'make smoketest'
   - name: python_version
     type: string
-    default: 3.8
+    default: 3.13
 
 steps:
   - task: UsePythonVersion@0
