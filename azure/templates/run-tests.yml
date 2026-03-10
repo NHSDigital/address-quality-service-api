@@ -13,6 +13,9 @@ parameters:
     default: 3.11
 
 steps:
+  - pool:
+    vmImage: ubuntu-22.04
+  
   - task: UsePythonVersion@0
     displayName: "Use Python ${{ parameters.python_version }}"
     inputs:
@@ -21,6 +24,8 @@ steps:
   
   - bash: |
       make install-python
+      python --version
+      pip --version
     workingDirectory: $(Pipeline.Workspace)/s/$(SERVICE_NAME)/$(SERVICE_ARTIFACT_NAME)
     displayName: Setup pytests
     condition: always()
