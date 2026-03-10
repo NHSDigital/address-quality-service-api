@@ -13,11 +13,11 @@ parameters:
     default: 3.11
 
 steps:
-  - task: UsePythonVersion@1
+  - task: UsePythonVersion@0
     displayName: "Use Python ${{ parameters.python_version }}"
     inputs:
       versionSpec: ${{ parameters.python_version }}
-      addToPath: true
+      addToPath: true   # optional, ensures python is on PATH
   
   - bash: |
       make install-python
