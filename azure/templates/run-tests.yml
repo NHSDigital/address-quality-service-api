@@ -1,3 +1,6 @@
+pool:
+  vmImage: ubuntu-22.04
+
 parameters:
   - name: full
     type: boolean
@@ -13,19 +16,19 @@ parameters:
     default: 3.11
 
 steps:
-  - pool:
-    vmImage: ubuntu-22.04
-  
   - task: UsePythonVersion@0
     displayName: "Use Python ${{ parameters.python_version }}"
     inputs:
       versionSpec: ${{ parameters.python_version }}
-      addToPath: true   # optional, ensures python is on PATH
-  
+      addToPath: true
+
   - bash: |
-      make install-python
       python --version
       pip --version
+    displayName: "Verify Python installation"
+
+  - bash: |
+      make install-python
     workingDirectory: $(Pipeline.Workspace)/s/$(SERVICE_NAME)/$(SERVICE_ARTIFACT_NAME)
     displayName: Setup pytests
     condition: always()
@@ -48,6 +51,7 @@ steps:
       inputs:
         testResultsFiles: '$(Pipeline.Workspace)/s/$(SERVICE_NAME)/$(SERVICE_ARTIFACT_NAME)/test-report.xml'
         failTaskOnFailedTests: true
+
   - ${{ if not(parameters.full) }}:
     # In order to run tests in prod you must supply the unique ID of an Apigee app
     # that has authorized access to your service proxy.
