@@ -1,6 +1,3 @@
-pool:
-  vmImage: ubuntu-22.04
-
 parameters:
   - name: full
     type: boolean
@@ -13,7 +10,7 @@ parameters:
     default: 'make smoketest'
   - name: python_version
     type: string
-    default: 3.11
+    default: 3.12
 
 steps:
   - task: UsePythonVersion@0
