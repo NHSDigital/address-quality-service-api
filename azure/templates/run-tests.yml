@@ -14,6 +14,15 @@ parameters:
 
 steps:
   - bash: |
+      set -ex
+      which python
+      python --version
+      python -c "print('python works')"
+      pip --version
+      poetry --version
+    displayName: Debug Python
+  
+  - bash: |
       python --version
       pip --version
     displayName: "Verify Python installation"
