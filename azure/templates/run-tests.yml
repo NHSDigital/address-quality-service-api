@@ -13,12 +13,6 @@ parameters:
     default: 3.12
 
 steps:
-  - task: UsePythonVersion@0
-    displayName: "Use Python ${{ parameters.python_version }}"
-    inputs:
-      versionSpec: ${{ parameters.python_version }}
-      addToPath: true
-
   - bash: |
       python --version
       pip --version
@@ -29,6 +23,12 @@ steps:
     workingDirectory: $(Pipeline.Workspace)/s/$(SERVICE_NAME)/$(SERVICE_ARTIFACT_NAME)
     displayName: Setup pytests
     condition: always()
+
+  - task: UsePythonVersion@0
+    displayName: "Use Python ${{ parameters.python_version }}"
+    inputs:
+      versionSpec: ${{ parameters.python_version }}
+      addToPath: true
 
   - ${{ if parameters.full }}:
     # In order to run tests in prod you must supply the unique ID of an Apigee app
